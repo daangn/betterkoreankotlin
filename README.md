@@ -3,7 +3,7 @@ betterkoreankotlin
 
 ![betterkoreankotlin](https://raw.githubusercontent.com/n42corp/betterkorean/master/hm.jpg)
 
-betterkoreankotlin 은 android 버전 https://github.com/n42corp/betterkorean 을 Kotlin 버전으로 포팅한 라이브러리 입니다.
+betterkoreankotlin 은 android(Java) 버전 https://github.com/n42corp/betterkorean 을 Kotlin 버전으로 포팅한 라이브러리 입니다.
 특정단어에 대한 조사를 자연스럽게 연결해주는 역할을 하고 있어요. 특정 단어를 서버에서 받아오거나 유저의 입력을 받는 경우 이 단어에 대한 조사를 미리 정하지 못하기 때문에 "은(는)" 이런식으로 보기 안좋게 개발을 해야하는 문제를 해결하고 싶어서 포팅을 하게 됐습니다. :)
 
 예) 사과**가** 맜있다, 아버지**가** 바나나**를** 드신다.
