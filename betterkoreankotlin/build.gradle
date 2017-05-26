@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plubin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.n42corp'
-version = '0.8'
+version = '0.9'
 
 android {
     compileSdkVersion 25
