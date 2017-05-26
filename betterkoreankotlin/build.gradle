@@ -1,37 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plubin: 'com.github.dcendents.android-maven'
 
-group = 'com.daangn.www'
-version = '0.8.0'
-
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
-
-artifacts {
-    archives generateSourcesJar
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    pkg {
-        repo = "maven"
-        name = "betterkoreankotlin"
-        websiteUrl = 'https://github.com/n42corp/betterkoreankotlin'
-        vcsUrl = 'https://github.com/n42corp/betterkoreankotlin.git'
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-    configurations = ['archives']
-}
+group = 'com.github.n42corp'
+version = '0.8'
 
 android {
     compileSdkVersion 25
