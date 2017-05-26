@@ -48,10 +48,8 @@ allprojects {
 
 Gradle: app 레벨 build.gradle 파일
 ```groovy
-buildscript {
-  dependencies {
-    classpath 'com.kaijung.betterkorean:betterkorean:0.8.3'
-  }
+dependencies {
+	compile 'com.github.n42corp:betterkoreankotlin:0.9.4'
 }
 ```
 
