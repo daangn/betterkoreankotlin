@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.n42corp'
-version = '0.9.3'
+version = '0.9.4'
 
 android {
     compileSdkVersion 25
@@ -13,7 +13,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 2
-        version "0.9.3"
+        version "0.9.4"
     }
 
     lintOptions {
