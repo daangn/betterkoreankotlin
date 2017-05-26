@@ -19,12 +19,16 @@ Kotlin 의 string extension 을 이용해서 라이브러리 install 후에 그�
 
 ```Kotlin
 val sample_1 = "아빠".appendJosa(JosaType.Type_이가) + " 방으로 들어가신다."
+//결과: 아빠가 방으로 들어가신다.
+
 val sample_2 = "집".appendJosa(JosaType.Type_으로_로) + " 가야지"
+//결과: 집으로 가야지
 
 val region = "서초1동"
 val regionJosa = region.getJosa(JosaType.Type_을를)
 
 val sample_3 = region.appendJosa(JosaType.Type_을를) + " 내 지역으로 설정할까요? (선택된 조사: $regionJosa)"
+//결과: 서초1동을 내 지역으로 설정할까요? (선택된 조사: 을)
 ```
 
 * [예제보기](https://github.com/n42corp/betterkoreankotlin/blob/master/app/src/main/java/com/daangn/www/betterkoreankotlinsample/MainActivity.kt).
