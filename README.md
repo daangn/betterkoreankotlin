@@ -9,6 +9,7 @@ betterkorean 은 android https://github.com/n42corp/betterkorean 을 Kotlin 버�
 예) 사과**가** 맜있다, 아버지**가** 바나나**를** 드신다.
 
 은는 이가 을를 와과 으로(로) 아야 등의 조사를 지원합니다.
+Kotlin 의 string extension 을 이용해서 라이브러리 install 후에 그냥 일반 스트링에 2가지 추가된 메소드만 사용하면 됩니다.
 
 사용법
 ======
@@ -26,7 +27,7 @@ val regionJosa = region.getJosa(JosaType.Type_을를)
 val sample_3 = region.appendJosa(JosaType.Type_을를) + " 내 지역으로 설정할까요? (선택된 조사: $regionJosa)"
 ```
 
-* [예제보기](https://github.com/n42corp/betterkorean/blob/master/app/src/main/java/com/kaijung/betterkoreansample/MainActivity.java).
+* [예제보기](https://github.com/n42corp/betterkoreankotlin/blob/master/app/src/main/java/com/daangn/www/betterkoreankotlinsample/MainActivity.kt).
 
 Install
 =======
