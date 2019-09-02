@@ -13,7 +13,6 @@ fun String.getJosa(josaType: JosaType): String {
     return when (josaType) {
         JosaType.Type_이가, JosaType.Type_은는, JosaType.Type_을를, JosaType.Type_아야, JosaType.Type_와과 -> analyzer.getJosa(josaType)
         JosaType.Type_으로_로 -> analyzer.getJosa_으_으로()
-        else -> throw IllegalArgumentException("not supported josaType")
     }
 }
 

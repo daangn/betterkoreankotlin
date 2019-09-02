@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BetterKoreanKotlinSample.iml" filepath="$PROJECT_DIR$/BetterKoreanKotlinSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-betterkoreankotlin.iml" filepath="$PROJECT_DIR$/android-betterkoreankotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/betterkoreankotlin/betterkoreankotlin.iml" filepath="$PROJECT_DIR$/betterkoreankotlin/betterkoreankotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/betterkoreankotlin-app.iml" filepath="$PROJECT_DIR$/app/betterkoreankotlin-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/betterkoreankotlin/betterkoreankotlin-betterkoreankotlin.iml" filepath="$PROJECT_DIR$/betterkoreankotlin/betterkoreankotlin-betterkoreankotlin.iml" />
     </modules>
   </component>
 </project>

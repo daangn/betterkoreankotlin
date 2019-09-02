@@ -6,10 +6,10 @@ import java.util.*
  * Created by kai on 2017. 5. 25..
  */
 
-private val HANGUL_SYLLABLES_BEGIN: Char = 0xAC00.toChar()
-private val HANGUL_SYLLABLES_END: Char = 0xD7A3.toChar()
-private val CHOSUNG_BASE = 588
-private val JUNGSUNG_BASE = 28
+private const val HANGUL_SYLLABLES_BEGIN: Char = 0xAC00.toChar()
+private const val HANGUL_SYLLABLES_END: Char = 0xD7A3.toChar()
+private const val CHOSUNG_BASE = 588
+private const val JUNGSUNG_BASE = 28
 
 private val jongSungList = arrayOf(" ", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ")
 private val engCheckList = arrayOf("A", "a", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "O", "o", "R", "r", "S", "s", "U", "u", "V", "v", "X", "x", "Y", "y", "Z", "z")
@@ -28,18 +28,20 @@ enum class JosaType {
     Type_은는, Type_이가, Type_을를, Type_으로_로, Type_아야, Type_와과
 }
 
-class Analyzer (val src: String){
+class Analyzer(private val src: String){
 
     fun getJosa(josaType: JosaType): String {
 
-        val candidatePair: Pair<String, String>
+        if (Locale.getDefault().language != Locale.KOREA.language) {
+            return ""
+        }
 
-        when (josaType) {
-            JosaType.Type_은는 -> candidatePair = Pair("은", "는")
-            JosaType.Type_을를 -> candidatePair = Pair("을", "를")
-            JosaType.Type_이가 -> candidatePair = Pair("이", "가")
-            JosaType.Type_아야 -> candidatePair = Pair("아", "야")
-            JosaType.Type_와과 -> candidatePair = Pair("과", "와")
+        val candidatePair: Pair<String, String> = when (josaType) {
+            JosaType.Type_은는 -> Pair("은", "는")
+            JosaType.Type_을를 -> Pair("을", "를")
+            JosaType.Type_이가 -> Pair("이", "가")
+            JosaType.Type_아야 -> Pair("아", "야")
+            JosaType.Type_와과 -> Pair("과", "와")
             else -> throw IllegalArgumentException("invalid type")
         }
 
@@ -55,14 +57,14 @@ class Analyzer (val src: String){
     }
 
     fun getJosa_으_으로(): String {
-        if (isHangul()) {
-            return if (isㄹ종성()) "로" else if (isThere종성()) "으로" else "로"
+        return if (isHangul()) {
+            if (isㄹ종성()) "로" else if (isThere종성()) "으로" else "로"
         } else if (isEnglish()) {
-            return if (isL()) "로" else if (isKindOf받침()) "으로" else "로"
+            if (isL()) "로" else if (isKindOf받침()) "으로" else "로"
         } else if (isEndWithNumber()) {
-            return if (isOne()) "로" else if (isKindOf받침Number()) "으로" else "로"
+            if (isOne()) "로" else if (isKindOf받침Number()) "으로" else "로"
         } else {
-            return ""
+            ""
         }
     }
 
@@ -103,12 +105,12 @@ class Analyzer (val src: String){
 
         if (src.length >= 2) {
             val lastTwoString = src.substring(src.length - 2, src.length)
-            engType.filter { lastTwoString.toUpperCase() == it }.forEach { return true }
-            engType2.filter { lastTwoString.toUpperCase() == it }.forEach { return false }
+            engType.filter { lastTwoString.toUpperCase(Locale.getDefault()) == it }.forEach { _ -> return true }
+            engType2.filter { lastTwoString.toUpperCase(Locale.getDefault()) == it }.forEach { _ -> return false }
         }
 
         val lastString = src.substring(src.length - 1, src.length)
-        val list = ArrayList(Arrays.asList(*engCheckList))
+        val list = ArrayList(listOf(*engCheckList))
 
         return !list.contains(lastString)
     }
@@ -137,5 +139,4 @@ class Analyzer (val src: String){
         val last = getLastChar()
         return last == '1'
     }
-
 }
