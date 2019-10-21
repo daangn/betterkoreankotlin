@@ -57,6 +57,11 @@ class Analyzer(private val src: String){
     }
 
     fun getJosa_으_으로(): String {
+
+        if (Locale.getDefault().language != Locale.KOREA.language) {
+            return ""
+        }
+
         return if (isHangul()) {
             if (isㄹ종성()) "로" else if (isThere종성()) "으로" else "로"
         } else if (isEnglish()) {
